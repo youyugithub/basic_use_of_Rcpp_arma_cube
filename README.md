@@ -2,8 +2,8 @@
 basic examples on how to use cube in Rcpp armadillo
 
 ### Some helpful armadillo documents
-<http://dirk.eddelbuettel.com/papers/RcppArmadillo-intro.pdf>
-<https://github.com/petewerner/misc/wiki/RcppArmadillo-cheatsheet>
+<http://dirk.eddelbuettel.com/papers/RcppArmadillo-intro.pdf>   
+<https://github.com/petewerner/misc/wiki/RcppArmadillo-cheatsheet>    
 <http://arma.sourceforge.net/docs.html>
 
 ## get three dimensions
