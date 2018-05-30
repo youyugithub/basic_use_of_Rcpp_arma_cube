@@ -58,3 +58,31 @@ In R:
 [1,]   38   42   46
 [2,]   40   44   48
 ```
+## subsetting cubes
+Source:
+```
+#include <RcppArmadillo.h>
+using namespace Rcpp;
+//[[Rcpp::depends(RcppArmadillo)]]
+//[[Rcpp::export]]
+arma::cube test2(arma::cube AA){
+  AA=AA.subcube(0,0,0,1,1,1);
+  return(AA);
+}
+```
+In R:
+```
+> AA<-array(1:27,dim=c(3,3,3))
+> test2(AA)
+, , 1
+
+     [,1] [,2]
+[1,]    1    4
+[2,]    2    5
+
+, , 2
+
+     [,1] [,2]
+[1,]   10   13
+[2,]   11   14
+```
