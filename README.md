@@ -1,6 +1,10 @@
-# basic_use_of_Rcpp_arma_cube
+# Basic use of Rcpp arma cube
 basic examples on how to use cube in Rcpp armadillo
 
+### Some helpful armadillo documents
+<http://dirk.eddelbuettel.com/papers/RcppArmadillo-intro.pdf>
+<https://github.com/petewerner/misc/wiki/RcppArmadillo-cheatsheet>
+<http://arma.sourceforge.net/docs.html>
 
 ## get three dimensions
 Source:
