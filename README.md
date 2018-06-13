@@ -126,7 +126,7 @@ In R:
 [5,] 21375 24250 27375 30750 34375
 ```
 Note: use function "tube".
-## Extract vector from a cube
+## Extract vector from a cube 2
 To extract 1st/2nd dimension, try:    
 ```
 #include <RcppArmadillo.h>
