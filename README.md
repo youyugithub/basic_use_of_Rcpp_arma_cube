@@ -90,3 +90,57 @@ In R:
 [1,]   10   13
 [2,]   11   14
 ```
+
+## Extract vector from a cube
+Source:
+```
+#include <RcppArmadillo.h>
+using namespace Rcpp;
+//[[Rcpp::depends(RcppArmadillo)]]
+//[[Rcpp::export]]
+arma::mat testslicing1(arma::cube AA){
+  int numcol=AA.n_cols;
+  int numrow=AA.n_rows;
+  int numslice=AA.n_slices;
+  arma::mat BB(numcol,numrow);
+  arma::vec vv(numslice);
+  int ii,jj;
+  for(ii=0;ii<numrow;ii++){
+    for(jj=0;jj<numcol;jj++){
+      vv=AA.tube(ii,jj);
+      BB(ii,jj)=dot(vv,vv);
+    }
+  }
+  return(BB);
+}
+```
+In R:
+```
+> AA<-array(1:5^3,dim=c(5,5,5))
+> testslicing1(AA)
+      [,1]  [,2]  [,3]  [,4]  [,5]
+[1,] 19255 21930 24855 28030 31455
+[2,] 19770 22495 25470 28695 32170
+[3,] 20295 23070 26095 29370 32895
+[4,] 20830 23655 26730 30055 33630
+[5,] 21375 24250 27375 30750 34375
+```
+Note: use function "tube".
+## Extract vector from a cube
+To extract 1st/2nd dimension, try:    
+```
+#include <RcppArmadillo.h>
+using namespace Rcpp;
+//[[Rcpp::depends(RcppArmadillo)]]
+//[[Rcpp::export]]
+arma::mat testslicing2(arma::cube AA){
+  return(AA.slice(1).row(1));
+}
+```
+In R:
+```
+> AA<-array(1:5^3,dim=c(5,5,5))
+> testslicing2(AA)
+     [,1] [,2] [,3] [,4] [,5]
+[1,]   27   32   37   42   47
+```
